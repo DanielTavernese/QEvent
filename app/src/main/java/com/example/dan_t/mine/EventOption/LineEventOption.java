@@ -9,16 +9,33 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BaseHttpStack;
+import com.android.volley.toolbox.HttpResponse;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.dan_t.mine.Event;
 import com.example.dan_t.mine.EventOptionActivity;
 import com.example.dan_t.mine.EventType;
 import com.example.dan_t.mine.MainActivity;
 import com.example.dan_t.mine.R;
+import com.example.dan_t.mine.RetrieveFeedTask;
 
+import org.json.JSONArray;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
@@ -50,7 +67,6 @@ public class LineEventOption extends EventOption {
 
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(), "You have been added to the line!", Toast.LENGTH_SHORT).show();
-                String urlString = "https://husnain929.lib.id/Json-saving@dev/?Collection=event&field=Food";
 
                 //URL url = new URL(urlString);
                 //HttpURLConnection connection

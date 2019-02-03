@@ -12,7 +12,6 @@ public class MusicTypeEventOption extends EventOption {
 
     public MusicTypeEventOption(Activity activity, Event event) {
         super(activity, EventOptionType.MUSIC, event, "Music Choices", "https://i.imgur.com/JCxhLOc.jpg");
-        this.numberOfChoices = 7;
     }
 
     @Override
