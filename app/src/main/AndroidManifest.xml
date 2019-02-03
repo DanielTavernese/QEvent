@@ -31,6 +31,28 @@
             android:name=".EventOptionActivity"
             android:label="QHacks">
         </activity>
+
+        <activity
+            android:name=".AddEventActivity"
+            android:label="QHacks Add Event Option">
+        </activity>
+
+
+        <activity
+            android:name=".AddNewEventActivity"
+            android:label="QEvent Add Event Option">
+        </activity>
+
+        <activity
+            android:name=".CardviewFood"
+            android:label="QEvent List of Foods">
+        </activity>
+
+        <activity
+            android:name=".SearchNewEventActivity"
+            android:label="QEvent Options Added">
+    </activity>
+
     </application>
 
 

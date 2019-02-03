@@ -1,7 +1,9 @@
 package com.example.dan_t.mine.EventOption;
 
 import android.content.Context;
+import android.content.Intent;
 
+import com.example.dan_t.mine.CardviewFood;
 import com.example.dan_t.mine.Event;
 import com.example.dan_t.mine.EventOptionActivity;
 
@@ -13,6 +15,9 @@ public class FoodTypeEventOption extends EventOption {
 
     @Override
     public void fire() {
+
+        Intent intent = new Intent(getContext(), CardviewFood.class);
+        getContext().startActivity(intent);
 
     }
 }

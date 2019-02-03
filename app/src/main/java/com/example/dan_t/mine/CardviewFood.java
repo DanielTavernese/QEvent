@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -48,11 +49,12 @@ public class CardviewFood extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         try {
                             JSONArray array =response.getJSONObject(0).getJSONArray("Food");
-                            for(int i=0; i< array.length();i++){
-                            JSONObject Event = response.getJSONObject(0).getJSONArray("Food").getJSONObject(i);
 
 
-                                String Nonsplit = Event.toString();
+                            for(int i=0; i < array.length();i++){
+
+
+                                String Nonsplit = array.getString(i);
 
                                 String[] parts = Nonsplit.split("/");
                                 String part1 = parts[0]; // 004
@@ -62,12 +64,14 @@ public class CardviewFood extends AppCompatActivity {
                                 String location = part2;
 
                                 //String location = Event.getString("address");
-
+                                
 
                                 mFoodLists.add(new EatingLocation(name, location));
                             }
                             mExampleAdapter = new AdapterJson(CardviewFood.this,mFoodLists);
                             mFoodList.setAdapter(mExampleAdapter);
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
