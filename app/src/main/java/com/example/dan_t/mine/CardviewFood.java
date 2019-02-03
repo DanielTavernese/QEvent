@@ -42,16 +42,26 @@ public class CardviewFood extends AppCompatActivity {
     }
     private void parseJSON(){
         String url = "https://husnain929.lib.id/Json-saving@dev/?Collection=event&field=Food";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("food");
-                            for(int i=0; i<jsonArray.length();i++){
-                                JSONObject foodplace = jsonArray.getJSONObject(i);
-                                String name = foodplace.getString("name");
-                                String location = foodplace.getString("address");
+                            JSONArray array =response.getJSONObject(0).getJSONArray("Food");
+                            for(int i=0; i< array.length();i++){
+                            JSONObject Event = response.getJSONObject(0).getJSONArray("Food").getJSONObject(i);
+
+
+                                String Nonsplit = Event.toString();
+
+                                String[] parts = Nonsplit.split("/");
+                                String part1 = parts[0]; // 004
+                                String part2 = parts[1]; // 034556
+
+                                String name = part1;
+                                String location = part2;
+
+                                //String location = Event.getString("address");
 
 
                                 mFoodLists.add(new EatingLocation(name, location));
