@@ -57,7 +57,7 @@ public class LineEventOption extends EventOption {
 
                 counter++;
                 position = counter;
-                EventOptionActivity.initRecyclerView( getActivity(), (RecyclerView) getActivity().findViewById(R.id.event_view));
+                EventOptionActivity.initRecyclerView(getActivity(), (RecyclerView) getActivity().findViewById(R.id.event_view));
                 names.add(MainActivity.getAccountName());
                 dialog.dismiss();
             }

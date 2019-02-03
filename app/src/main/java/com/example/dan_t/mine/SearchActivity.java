@@ -38,9 +38,6 @@ public class SearchActivity extends AppCompatActivity {
        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
-        for(EventType type : EventType.values()) {
-            MainActivity.getActiveEvents().add(type.getEvent());
-        }
 
         fillEvents();
         initRecyclerView();
@@ -49,8 +46,9 @@ public class SearchActivity extends AppCompatActivity {
 
 
     private void fillEvents() {
-
-        events.addAll(MainActivity.getActiveEvents());
+        for(EventType type : EventType.values()) {
+            events.add(type.getEvent());
+        }
     }
 
 

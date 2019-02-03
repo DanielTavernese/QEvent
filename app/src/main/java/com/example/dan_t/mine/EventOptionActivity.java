@@ -16,6 +16,7 @@ import com.example.dan_t.mine.EventOption.EventOption;
 import com.example.dan_t.mine.EventOption.EventOptionType;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EventOptionActivity extends AppCompatActivity {
 
@@ -31,6 +32,8 @@ public class EventOptionActivity extends AppCompatActivity {
         EventType event = EventType.forName(eventName);
 
         setTitle(event.getEvent().getName());
+
+        events.clear();
 
         for(EventOptionType type : event.getEvent().getOptions()) {
             events.add(type.getEventOption(event.getEvent(), this));
