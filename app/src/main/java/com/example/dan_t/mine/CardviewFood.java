@@ -64,7 +64,7 @@ public class CardviewFood extends AppCompatActivity {
                                 String location = part2;
 
                                 //String location = Event.getString("address");
-                                
+
 
                                 mFoodLists.add(new EatingLocation(name, location));
                             }

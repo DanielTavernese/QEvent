@@ -1,5 +1,6 @@
 package com.example.dan_t.mine.EventOption;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.example.dan_t.mine.Event;
@@ -10,25 +11,25 @@ public enum EventOptionType {
     LINE() {
 
         @Override
-        public EventOption getEventOption(Event event, EventOptionActivity context) {
-            return new LineEventOption(context, event);
+        public EventOption getEventOption(Event event, Activity activity) {
+            return new LineEventOption(activity, event);
         }
     },
 
     FOOD() {
         @Override
-        public EventOption getEventOption(Event event, EventOptionActivity context) {
-            return new FoodTypeEventOption(context, event);
+        public EventOption getEventOption(Event event, Activity activity) {
+            return new FoodTypeEventOption(activity, event);
         }
     },
 
     MUSIC() {
         @Override
-        public EventOption getEventOption(Event event, EventOptionActivity context) {
-            return new MusicTypeEventOption(context, event);
+        public EventOption getEventOption(Event event, Activity activity) {
+            return new MusicTypeEventOption(activity, event);
         }
     };
 
-    public abstract EventOption getEventOption(Event event, EventOptionActivity context);
+    public abstract EventOption getEventOption(Event event, Activity activity);
 
 }

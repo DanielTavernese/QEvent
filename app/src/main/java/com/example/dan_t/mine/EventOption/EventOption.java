@@ -1,5 +1,6 @@
 package com.example.dan_t.mine.EventOption;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.example.dan_t.mine.Event;
@@ -11,12 +12,15 @@ public abstract class EventOption {
 
     private String name;
 
+    private EventOptionType type;
+
     private String imagePath;
 
-    private EventOptionActivity context;
+    private Activity activity;
 
-    public EventOption(EventOptionActivity context, Event event, String name, String imagePath) {
-        this.context = context;
+    public EventOption(Activity activity, EventOptionType type, Event event, String name, String imagePath) {
+        this.activity = activity;
+        this.type  = type;
         this.event = event;
         this.name = name;
         this.imagePath = imagePath;
@@ -26,6 +30,14 @@ public abstract class EventOption {
 
     public Event getEvent() {
         return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 
     public String getName() {
@@ -40,7 +52,11 @@ public abstract class EventOption {
         return name;
     }
 
-    public EventOptionActivity getContext() {
-        return context;
+    public EventOptionType getType() {
+        return type;
+    }
+
+    public Activity getActivity() {
+        return activity;
     }
 }

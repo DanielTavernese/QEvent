@@ -4,6 +4,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">QEvents</string>
     <string name="nav_header_subtitle"></string>
+    <string name="add_new_event_name">Enter New Event Name!</string>
+    <string name="add_new_event_url">Enter Icon Image URL!</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 </resources>

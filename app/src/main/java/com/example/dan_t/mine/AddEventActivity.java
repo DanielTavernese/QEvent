@@ -2,33 +2,27 @@ package com.example.dan_t.mine;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+
+import com.example.dan_t.mine.EventOption.EventOption;
+import com.example.dan_t.mine.EventOption.EventOptionType;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class SearchActivity extends AppCompatActivity {
+public class AddEventActivity  extends AppCompatActivity {
 
-    private static final String TAG = "SearchActivity";
+    private static final String TAG = "AddEventActivity";
 
-    private ArrayList<Event> events = new ArrayList<>();
+    private ArrayList<EventOption> events = new ArrayList<>();
 
-    private SearchRecycleViewAdapter adapter;
+    private OptionAddRecycleViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +32,6 @@ public class SearchActivity extends AppCompatActivity {
        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
-        for(EventType type : EventType.values()) {
-            MainActivity.getActiveEvents().add(type.getEvent());
-        }
-
         fillEvents();
         initRecyclerView();
     }
@@ -49,8 +39,9 @@ public class SearchActivity extends AppCompatActivity {
 
 
     private void fillEvents() {
-
-        events.addAll(MainActivity.getActiveEvents());
+        for(EventOptionType type : EventOptionType.values()) {
+            events.add(type.getEventOption(null, this));
+        }
     }
 
 
@@ -58,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.search_view);
 
-        adapter = new SearchRecycleViewAdapter(this, events);
+        adapter = new OptionAddRecycleViewAdapter(this, events);
 
         recyclerView.setAdapter(adapter);
 
@@ -96,7 +87,7 @@ public class SearchActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, AddNewEventActivity.class);
         startActivity(intent);
     }
 

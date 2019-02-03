@@ -1,5 +1,6 @@
 package com.example.dan_t.mine.EventOption;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.example.dan_t.mine.Event;
@@ -9,8 +10,8 @@ public class MusicTypeEventOption extends EventOption {
 
     private int numberOfChoices;
 
-    public MusicTypeEventOption(EventOptionActivity context, Event event) {
-        super(context, event, "Music Choices", "https://i.imgur.com/JCxhLOc.jpg");
+    public MusicTypeEventOption(Activity activity, Event event) {
+        super(activity, EventOptionType.MUSIC, event, "Music Choices", "https://i.imgur.com/JCxhLOc.jpg");
         this.numberOfChoices = 7;
     }
 

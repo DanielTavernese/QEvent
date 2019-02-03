@@ -26,6 +26,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.dan_t.mine.EventOption.EventOption;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -39,6 +41,13 @@ public class MainActivity extends AppCompatActivity
     private static String accountName;
 
     private static ArrayList<Event> events = new ArrayList<Event>();
+
+    private static ArrayList<Event> activeEvents = new ArrayList<>();
+
+    private static ArrayList<Event> ownEvents = new ArrayList<Event>();
+
+    private static ArrayList<EventOption> optionEvents = new ArrayList<EventOption>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,6 +165,10 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    public void addOwnEvent(Event event) {
+        ownEvents.add(event);
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -165,11 +178,22 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.search_event) {
             Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
+        } else if(id == R.id.add_event) {
+            Intent intent = new Intent(this, AddNewEventActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public static ArrayList<Event> getActiveEvents() {
+        return activeEvents;
+    }
+
+    public static ArrayList<EventOption> getEventOptions() {
+        return optionEvents;
     }
 
     public static String getAccountName() {
